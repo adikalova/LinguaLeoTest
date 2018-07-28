@@ -27,13 +27,13 @@ public class LoginTest {
     public void SuccessfulLoginToLinguaLeo() {
         driver.get("https://lingualeo.com/ru/login");
 
-        String emailInput = "//*[@id='email']";
-        String passwordInput = "//*[@id='password']";
-        String loginButton = "//*[@value='Войти']";
+        By emailInput = By.xpath("//*[@id='email']");
+        By passwordInput = By.xpath("//*[@id='password']");
+        By loginButton = By.xpath("//*[@value='Войти']");
 
-        driver.findElement(By.xpath(emailInput)).sendKeys("adikalova@gmail.com");
-        driver.findElement(By.xpath(passwordInput)).sendKeys("A771d6552");
-        driver.findElement(By.xpath(loginButton)).click();
+        driver.findElement(emailInput).sendKeys("adikalova@gmail.com");
+        driver.findElement(passwordInput).sendKeys("A771d6552");
+        driver.findElement(loginButton).click();
 
         Assert.assertTrue(driver.getTitle().contains("Мои задания"), "Login is successful!");
 
@@ -43,21 +43,22 @@ public class LoginTest {
     @Test(dependsOnMethods = "SuccessfulLoginToLinguaLeo")
     public void myProgress() {
 
-        String dictionary = "//*[contains(text(),'Словарь')]";
-        String buttonFind = "//*[@placeholder='Найти']";
-        String buttonAdd = "//*[contains(text(),'Добавить')]";
-        String butttonAddWorld = "button[type='submit'][class='btn find-word']";
-        String addWorldDog = "/html/body/div[13]/div[3]/div/div[1]/a[1]";
+        By dictionaryLocator =By.xpath( "//*[contains(text(),'Словарь')]");
+        By buttonFind = By.xpath("//*[@placeholder='Найти']");
+        By buttonAdd = By.xpath("//*[contains(text(),'Добавить')]");
+        By butttonAddWorld = By.cssSelector("button[type='submit'][class='btn find-word']");
+        By addWorldDog = By.xpath("/html/body/div[13]/div[3]/div/div[1]/a[1]");
+        By checkWord =By.cssSelector("[data-show-word-card-popup]");
 
 
-        driver.findElement(By.xpath(dictionary)).click();
-        driver.findElement(By.xpath(buttonFind)).sendKeys("dog");
-        driver.findElement(By.xpath(buttonAdd)).click();
-        driver.findElement(By.cssSelector(butttonAddWorld)).click();
-        driver.findElement(By.xpath(addWorldDog)).click();
+        driver.findElement(dictionaryLocator).click();
+        driver.findElement(buttonFind).sendKeys("dog");
+        driver.findElement(buttonAdd).click();
+        driver.findElement(butttonAddWorld).click();
+        driver.findElement(addWorldDog).click();
 
 
-        Assert.assertEquals(driver.findElement(By.cssSelector("[data-show-word-card-popup]")).getText(), "dog  —  собака");
+        Assert.assertEquals(driver.findElement(checkWord).getText(), "dog  —  собака");
 
     }
 
