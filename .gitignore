@@ -1,0 +1,8 @@
+.idea
+target/
+*.iml
+environment/grid/**
+!/**/*.bat
+!/**/*.json
+testng.xml
+testrun.properties
