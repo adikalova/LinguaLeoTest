@@ -1,49 +1,29 @@
 package ui.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
-
-public class LoginPage {
-    public static WebDriver driver;
-
-    public LoginPage startChrome() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Анастасия\\Desktop\\LinguaLeoTests\\enviroment\\chromedriver.exe");
-
-        driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://lingualeo.com/ru/login");
-        return this ;
-    }
-
-
+public class LoginPage extends BasePage{
     private By emailInput = By.xpath("//*[@id='email']");
     private By passwordInput = By.xpath("//*[@id='password']");
     private By loginButton = By.xpath("//*[@value='Войти']");
+//    private By dictionaryLocator = By.xpath("//*[contains(text(),'Словарь')]");
+//
+//    public LoginPage clickDictionary(){
+//        driver.findElement(dictionaryLocator).click();
+//        return this;
+//    }
 
-    public LoginPage InputEmail () {
+    public LoginPage inputEmail () {
         driver.findElement(emailInput).sendKeys("adikalova@gmail.com");
         return this;
     }
 
-    public LoginPage EnterPassword () {
+    public LoginPage enterPassword () {
         driver.findElement(passwordInput).sendKeys("A771d6552");
         return this;
     }
-    public LoginPage ClickLoginButton () {
+    public LoginPage clickLoginButton () {
         driver.findElement(loginButton).click();
         return this;
     }
-
-
-
-
-
-
-
-
 }
