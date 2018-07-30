@@ -9,7 +9,7 @@ public class BasePage {
     public static WebDriver driver;
 
     public BasePage startChrome() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Анастасия\\Desktop\\LinguaLeoTests\\enviroment\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Анастасия\\Desktop\\LinguaLeoTest\\enviroment\\chromedriver.exe");
 
         driver = new ChromeDriver();
 

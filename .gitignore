@@ -4,5 +4,4 @@ target/
 environment/grid/**
 !/**/*.bat
 !/**/*.json
-testng.xml
 testrun.properties

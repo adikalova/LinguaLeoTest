@@ -1,3 +1,5 @@
+package ui;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,7 +16,7 @@ public class Tests {
     DasboardPage dasboardPage = new DasboardPage();
 
 
-    @Test
+    @BeforeTest
     public void SuccessfulLoginToLinguaLeo() {
         String Title = "Lingualeo";
         basePage.startChrome();
@@ -27,7 +29,7 @@ public class Tests {
     }
 
 
-    @Test(priority = 1)
+    @Test
     public void myProgress() {
         String word = "dog";
 
