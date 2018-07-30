@@ -11,6 +11,8 @@ public class DasboardPage extends BasePage{
     private By buttonAddWorld = By.cssSelector("button[type='submit'][class='btn find-word']");
     private By addWorld = By.xpath("/html/body/div[13]/div[3]/div/div[1]/a[1]");
     private By checkWord = By.cssSelector("[data-show-word-card-popup]");
+    private By trainingButton = By.xpath("//a[contains(@href,'/ru/training')]");
+    private By addSecondWord = By.xpath("/html/body/div[13]/div[3]/div/div[1]/a[1]");
 
 
     public DasboardPage clickDictionary() {
@@ -20,6 +22,10 @@ public class DasboardPage extends BasePage{
 
     public DasboardPage enterWord(String word) {
         driver.findElement(buttonFind).sendKeys(word);
+        return this;
+    }
+    public DasboardPage enterSecondWord(String word2) {
+        driver.findElement(buttonFind).sendKeys(word2);
         return this;
     }
 
@@ -36,6 +42,15 @@ public class DasboardPage extends BasePage{
         driver.findElement(addWorld).click();
         return this;
     }
+    public DasboardPage clickAddSecondWord(){
+        driver.findElement(addSecondWord).click();
+        return this;
+    }
+    public DasboardPage clickTraining(){
+        driver.findElement(trainingButton).click();
+        return this;
+    }
+
     public boolean isWordWithTextPresent() {
         By buttonSelector = checkWord;
         try {

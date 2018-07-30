@@ -32,16 +32,31 @@ public class Tests {
     @Test
     public void myProgress() {
         String word = "dog";
+        String word2 = "cat";
 
         dasboardPage.clickDictionary()
                 .enterWord(word)
                 .clickAddButton()
                 .clickAddWordButton()
                 .clickAddWord();
+        Assert.assertTrue(dasboardPage.isWordWithTextPresent());
+
+        dasboardPage.clickDictionary()
+                .enterSecondWord(word2)
+                .clickAddButton()
+                .clickAddWordButton()
+                .clickAddSecondWord();
 
         Assert.assertTrue(dasboardPage.isWordWithTextPresent());
 
+
+
     }
 
+    @Test(priority = 1)
+    public void training(){
+        dasboardPage.clickTraining();
+//        driver.findElement(By.xpath(("//a[contains(@href,'/ru/training/wordTranslate')]"))).click();
+    }
 
 }
