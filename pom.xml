@@ -55,10 +55,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-        </plugins>
-
-            <plugins>
-
                 <plugin>
                     <groupId>io.qameta.allure</groupId>
                     <artifactId>allure-maven</artifactId>
@@ -71,6 +67,4 @@
             </plugins>
 
     </build>
-
-
 </project>
